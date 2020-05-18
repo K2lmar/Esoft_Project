@@ -4,10 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1ce8df3fce0a41a49f15b2c0a6b44802" Name="Diagram1">
-        <EntityTypeShape EntityType="Esoft_ProjectModel.ClientsSet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Esoft_ProjectModel.RealEstateSet" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Esoft_ProjectModel.RealtorsSet" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="5f92af6b1a07468d853f43aac76e6263" Name="Diagram1">
+        <EntityTypeShape EntityType="Esoft_ProjectModel.ClientsSet" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Esoft_ProjectModel.DemandSet" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Esoft_ProjectModel.RealEstateSet" Width="1.5" PointX="9.625" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Esoft_ProjectModel.RealtorsSet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Esoft_ProjectModel.SupplySet" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="Esoft_ProjectModel.FK_DemandSet_ClientsSet" ManuallyRouted="false" />
+        <AssociationConnector Association="Esoft_ProjectModel.FK_SupplySet_ClientsSet" ManuallyRouted="false" />
+        <AssociationConnector Association="Esoft_ProjectModel.FK_DemandSet_RealtorsSet" ManuallyRouted="false" />
+        <AssociationConnector Association="Esoft_ProjectModel.FK_SupplySet_RealEstateSet" ManuallyRouted="false" />
+        <AssociationConnector Association="Esoft_ProjectModel.FK_SupplySet_RealtorsSet" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
