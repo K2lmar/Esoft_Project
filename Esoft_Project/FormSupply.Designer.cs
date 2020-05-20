@@ -38,6 +38,9 @@ namespace Esoft_Project
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.labelRealtor = new System.Windows.Forms.Label();
             this.labelClient = new System.Windows.Forms.Label();
@@ -47,17 +50,14 @@ namespace Esoft_Project
             this.comboBoxRealEstate = new System.Windows.Forms.ComboBox();
             this.comboBoxRealtors = new System.Windows.Forms.ComboBox();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(667, 269);
+            this.buttonAdd.Location = new System.Drawing.Point(663, 269);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(79, 31);
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "Создать";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@ namespace Esoft_Project
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(757, 269);
+            this.buttonEdit.Location = new System.Drawing.Point(753, 269);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonEdit.Size = new System.Drawing.Size(79, 31);
             this.buttonEdit.TabIndex = 1;
             this.buttonEdit.Text = "Изменить";
             this.buttonEdit.UseVisualStyleBackColor = true;
@@ -75,9 +75,9 @@ namespace Esoft_Project
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(848, 269);
+            this.buttonDel.Location = new System.Drawing.Point(844, 269);
             this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(75, 23);
+            this.buttonDel.Size = new System.Drawing.Size(79, 31);
             this.buttonDel.TabIndex = 2;
             this.buttonDel.Text = "Удалить";
             this.buttonDel.UseVisualStyleBackColor = true;
@@ -124,6 +124,21 @@ namespace Esoft_Project
             // 
             this.columnHeader4.Text = "ФИО клиента";
             this.columnHeader4.Width = 97;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Id объекта недвижимости";
+            this.columnHeader5.Width = 147;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Адрес объекта недвижимости";
+            this.columnHeader6.Width = 167;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Цена";
+            this.columnHeader7.Width = 79;
             // 
             // textBoxPrice
             // 
@@ -202,26 +217,11 @@ namespace Esoft_Project
             this.Logo.TabIndex = 12;
             this.Logo.TabStop = false;
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Id объекта недвижимости";
-            this.columnHeader5.Width = 147;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Адрес объекта недвижимости";
-            this.columnHeader6.Width = 167;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Цена";
-            this.columnHeader7.Width = 79;
-            // 
             // FormSupply
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 300);
+            this.ClientSize = new System.Drawing.Size(935, 307);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.comboBoxRealtors);
             this.Controls.Add(this.comboBoxRealEstate);

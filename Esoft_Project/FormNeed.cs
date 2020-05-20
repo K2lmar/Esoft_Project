@@ -87,7 +87,7 @@ namespace Esoft_Project
                     need.MaxFloors.ToString()
                     });
                     item.Tag = need;
-                    listViewDemandSet_Apartment.Items.Add(item);
+                    listViewDemandSet_House.Items.Add(item);
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace Esoft_Project
                     need.MaxArea.ToString()
                     });
                     item.Tag = need;
-                    listViewDemandSet_Apartment.Items.Add(item);
+                    listViewDemandSet_Land.Items.Add(item);
                 }
             }
             listViewDemandSet_Apartment.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -114,23 +114,17 @@ namespace Esoft_Project
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if (comboBoxRealtors.SelectedItem != null && comboBoxClients.SelectedItem != null && comboBoxTypes != null 
-                && textBoxMinPrice.Text != null && textBoxMaxPrice.Text != null && textBoxMinArea.Text != null && textBoxMaxArea.Text != null 
-                && textBoxMinRooms.Text != null && textBoxMaxRooms.Text != null && textBoxMinFloor.Text != null && textBoxMaxFloor.Text != null
-                && textBoxMinFloors.Text != null && textBoxMaxFloors.Text != "")
+            if (comboBoxRealtors.SelectedItem != null && comboBoxClients.SelectedItem != null)
             {
                 DemandSet need = new DemandSet();
                 need.IdRealtor = Convert.ToInt32(comboBoxRealtors.SelectedItem.ToString().Split('.')[0]);
                 need.IdClient = Convert.ToInt32(comboBoxClients.SelectedItem.ToString().Split('.')[0]);
-                need.Type = Convert.ToInt32(comboBoxTypes.SelectedItem.ToString().Split('.')[0]);
                 need.MinPrice = Convert.ToInt32(textBoxMinPrice.Text);
                 need.MaxPrice = Convert.ToInt32(textBoxMaxPrice.Text);
                 need.MinArea = Convert.ToInt32(textBoxMinArea.Text);
                 need.MaxArea = Convert.ToInt32(textBoxMaxArea.Text);
                 need.MinRooms = Convert.ToInt32(textBoxMinRooms.Text);
                 need.MaxRooms = Convert.ToInt32(textBoxMaxRooms.Text);
-                need.MinFloor = Convert.ToInt32(textBoxMinFloor.Text);
-                need.MaxFloor = Convert.ToInt32(textBoxMaxFloor.Text);
                 need.MinFloors = Convert.ToInt32(textBoxMinFloors.Text);
                 need.MaxFloors = Convert.ToInt32(textBoxMaxFloors.Text);
                 if (comboBoxTypes.SelectedIndex == 0)
@@ -140,6 +134,16 @@ namespace Esoft_Project
                 else if (comboBoxTypes.SelectedIndex == 1)
                 {
                     need.Type = 1;
+                    if (textBoxMinFloor.Text != "")
+                    {
+                        need.MinFloor = Convert.ToInt32(textBoxMinFloor.Text);
+                    }
+                    else need.MinFloor = null;
+                    if (textBoxMaxFloor.Text != "")
+                    {
+                        need.MaxFloor = Convert.ToInt32(textBoxMaxFloor.Text);
+                    }
+                    else need.MaxFloor = null;
                 }
                 else 
                 {
@@ -178,9 +182,9 @@ namespace Esoft_Project
             }
             else if (comboBoxTypes.SelectedIndex == 1)
             {
-                if (listViewDemandSet_Apartment.SelectedItems.Count == 1)
+                if (listViewDemandSet_House.SelectedItems.Count == 1)
                 {
-                    DemandSet need = listViewDemandSet_Apartment.SelectedItems[0].Tag as DemandSet;
+                    DemandSet need = listViewDemandSet_House.SelectedItems[0].Tag as DemandSet;
                     need.IdRealtor = Convert.ToInt32(comboBoxRealtors.SelectedItem.ToString().Split('.')[0]);
                     need.IdClient = Convert.ToInt32(comboBoxClients.SelectedItem.ToString().Split('.')[0]);
                     need.Type = Convert.ToInt32(comboBoxTypes.SelectedItem.ToString().Split('.')[0]);
@@ -198,12 +202,11 @@ namespace Esoft_Project
             }
             else
             {
-                if (listViewDemandSet_Apartment.SelectedItems.Count == 1)
+                if (listViewDemandSet_Land.SelectedItems.Count == 1)
                 {
-                    DemandSet need = listViewDemandSet_Apartment.SelectedItems[0].Tag as DemandSet;
+                    DemandSet need = listViewDemandSet_Land.SelectedItems[0].Tag as DemandSet;
                     need.IdRealtor = Convert.ToInt32(comboBoxRealtors.SelectedItem.ToString().Split('.')[0]);
                     need.IdClient = Convert.ToInt32(comboBoxClients.SelectedItem.ToString().Split('.')[0]);
-                    need.Type = Convert.ToInt32(comboBoxTypes.SelectedItem.ToString().Split('.')[0]);
                     need.MinPrice = Convert.ToInt32(textBoxMinPrice.Text);
                     need.MaxPrice = Convert.ToInt32(textBoxMaxPrice.Text);
                     need.MinArea = Convert.ToInt32(textBoxMinArea.Text);
@@ -229,7 +232,6 @@ namespace Esoft_Project
                     }
                     comboBoxRealtors.SelectedItem = null;
                     comboBoxClients.SelectedItem = null;
-                    comboBoxTypes.SelectedItem = null;
                     textBoxMinPrice.Text = "";
                     textBoxMaxPrice.Text = "";
                     textBoxMinArea.Text = "";
@@ -252,7 +254,6 @@ namespace Esoft_Project
                     }
                     comboBoxRealtors.SelectedItem = null;
                     comboBoxClients.SelectedItem = null;
-                    comboBoxTypes.SelectedItem = null;
                     textBoxMinPrice.Text = "";
                     textBoxMaxPrice.Text = "";
                     textBoxMinArea.Text = "";
@@ -273,7 +274,6 @@ namespace Esoft_Project
                     }
                     comboBoxRealtors.SelectedItem = null;
                     comboBoxClients.SelectedItem = null;
-                    comboBoxTypes.SelectedItem = null;
                     textBoxMinPrice.Text = "";
                     textBoxMaxPrice.Text = "";
                     textBoxMinArea.Text = "";
@@ -291,14 +291,32 @@ namespace Esoft_Project
             if (comboBoxTypes.SelectedIndex == 0)
             {
                 listViewDemandSet_Apartment.Visible = true;
-
+                labelMinPrice.Visible = true;
+                textBoxMinPrice.Visible = true;
+                labelMaxPrice.Visible = true;
+                textBoxMaxPrice.Visible = true;
+                labelMinArea.Visible = true;
+                textBoxMinArea.Visible = true;
+                labelMaxArea.Visible = true;
+                textBoxMaxArea.Visible = true;
+                labelMinRooms.Visible = true;
+                textBoxMinRooms.Visible = true;
+                labelMaxRooms.Visible = true;
+                textBoxMaxRooms.Visible = true;
+                labelMinFloor.Visible = true;
+                textBoxMinFloor.Visible = true;
+                labelMaxFloors.Visible = true;
+                textBoxMaxFloor.Visible = true;
+                labelMinFloors.Visible = true;
+                textBoxMinFloors.Visible = true;
+                labelMaxFloors.Visible = true;
+                textBoxMaxFloors.Visible = true;
 
                 listViewDemandSet_House.Visible = false;
                 listViewDemandSet_Land.Visible = false;
 
                 comboBoxRealtors.SelectedItem = null;
                 comboBoxClients.SelectedItem = null;
-                comboBoxTypes.SelectedItem = null;
                 textBoxMinPrice.Text = "";
                 textBoxMaxPrice.Text = "";
                 textBoxMinArea.Text = "";
@@ -313,6 +331,22 @@ namespace Esoft_Project
             else if (comboBoxTypes.SelectedIndex == 1)
             {
                 listViewDemandSet_House.Visible = true;
+                labelMinPrice.Visible = true;
+                textBoxMinPrice.Visible = true;
+                labelMaxPrice.Visible = true;
+                textBoxMaxPrice.Visible = true;
+                labelMinArea.Visible = true;
+                textBoxMinArea.Visible = true;
+                labelMaxArea.Visible = true;
+                textBoxMaxArea.Visible = true;
+                labelMinRooms.Visible = true;
+                textBoxMinRooms.Visible = true;
+                labelMaxRooms.Visible = true;
+                textBoxMaxRooms.Visible = true;
+                labelMinFloors.Visible = true;
+                textBoxMinFloors.Visible = true;
+                labelMaxFloors.Visible = true;
+                textBoxMaxFloors.Visible = true;
 
                 listViewDemandSet_Apartment.Visible = false;
                 listViewDemandSet_Land.Visible = false;
@@ -323,7 +357,6 @@ namespace Esoft_Project
 
                 comboBoxRealtors.SelectedItem = null;
                 comboBoxClients.SelectedItem = null;
-                comboBoxTypes.SelectedItem = null;
                 textBoxMinPrice.Text = "";
                 textBoxMaxPrice.Text = "";
                 textBoxMinArea.Text = "";
@@ -338,6 +371,14 @@ namespace Esoft_Project
             else if (comboBoxTypes.SelectedIndex == 2)
             {
                 listViewDemandSet_Land.Visible = true;
+                labelMinPrice.Visible = true;
+                textBoxMinPrice.Visible = true;
+                labelMaxPrice.Visible = true;
+                textBoxMaxPrice.Visible = true;
+                labelMinArea.Visible = true;
+                textBoxMinArea.Visible = true;
+                labelMaxArea.Visible = true;
+                textBoxMaxArea.Visible = true;
 
                 listViewDemandSet_Apartment.Visible = false;
                 listViewDemandSet_House.Visible = false;
@@ -356,7 +397,6 @@ namespace Esoft_Project
 
                 comboBoxRealtors.SelectedItem = null;
                 comboBoxClients.SelectedItem = null;
-                comboBoxTypes.SelectedItem = null;
                 textBoxMinPrice.Text = "";
                 textBoxMaxPrice.Text = "";
                 textBoxMinArea.Text = "";
@@ -371,7 +411,6 @@ namespace Esoft_Project
                 DemandSet need = listViewDemandSet_Apartment.SelectedItems[0].Tag as DemandSet;
                 comboBoxRealtors.SelectedItem = comboBoxRealtors.FindString(need.IdRealtor.ToString());
                 comboBoxClients.SelectedItem = comboBoxClients.FindString(need.IdClient.ToString());
-                comboBoxTypes.SelectedItem = comboBoxTypes.FindString(need.Type.ToString());
                 textBoxMinPrice.Text = need.MinPrice.ToString();
                 textBoxMaxPrice.Text = need.MaxPrice.ToString();
                 textBoxMinArea.Text = need.MinArea.ToString();
@@ -387,7 +426,6 @@ namespace Esoft_Project
             {
                 comboBoxRealtors.SelectedItem = null;
                 comboBoxClients.SelectedItem = null;
-                comboBoxTypes.SelectedItem = null;
                 textBoxMinPrice.Text = "";
                 textBoxMaxPrice.Text = "";
                 textBoxMinArea.Text = "";
@@ -408,7 +446,6 @@ namespace Esoft_Project
                 DemandSet need = listViewDemandSet_Apartment.SelectedItems[0].Tag as DemandSet;
                 comboBoxRealtors.SelectedItem = comboBoxRealtors.FindString(need.IdRealtor.ToString());
                 comboBoxClients.SelectedItem = comboBoxClients.FindString(need.IdClient.ToString());
-                comboBoxTypes.SelectedItem = comboBoxTypes.FindString(need.Type.ToString());
                 textBoxMinPrice.Text = need.MinPrice.ToString();
                 textBoxMaxPrice.Text = need.MaxPrice.ToString();
                 textBoxMinArea.Text = need.MinArea.ToString();
@@ -422,7 +459,6 @@ namespace Esoft_Project
             {
                 comboBoxRealtors.SelectedItem = null;
                 comboBoxClients.SelectedItem = null;
-                comboBoxTypes.SelectedItem = null;
                 textBoxMinPrice.Text = "";
                 textBoxMaxPrice.Text = "";
                 textBoxMinArea.Text = "";
@@ -441,7 +477,6 @@ namespace Esoft_Project
                 DemandSet need = listViewDemandSet_Apartment.SelectedItems[0].Tag as DemandSet;
                 comboBoxRealtors.SelectedItem = comboBoxRealtors.FindString(need.IdRealtor.ToString());
                 comboBoxClients.SelectedItem = comboBoxClients.FindString(need.IdClient.ToString());
-                comboBoxTypes.SelectedItem = comboBoxTypes.FindString(need.Type.ToString());
                 textBoxMinPrice.Text = need.MinPrice.ToString();
                 textBoxMaxPrice.Text = need.MaxPrice.ToString();
                 textBoxMinArea.Text = need.MinArea.ToString();
@@ -451,7 +486,6 @@ namespace Esoft_Project
             {
                 comboBoxRealtors.SelectedItem = null;
                 comboBoxClients.SelectedItem = null;
-                comboBoxTypes.SelectedItem = null;
                 textBoxMinPrice.Text = "";
                 textBoxMaxPrice.Text = "";
                 textBoxMinArea.Text = "";
